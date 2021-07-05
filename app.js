@@ -1,5 +1,5 @@
 const users = [
-    {id: 1, name: 'Mifi', email: 'mifi@mail.com', password: '1234'},
+    {id: 'mifi', name: 'Mifi', email: 'mifi@mail.com', password: '1234'},
   ]
 const tweets= ['Hello world', 'how are you, people?']
 
@@ -9,11 +9,11 @@ module.exports= {
     tweets: tweets,
 
     registerUser: (data)=> {
-    const { name, email, password } = data
+    const { id, name, email, password } = data
     const exists = users.some(user => user.email === email);
     if(!exists) {
         const user = {
-          id: users.length + 1,
+          id,
           name,
           email,
           password
@@ -25,11 +25,14 @@ module.exports= {
     },
 
     verifyUser: (data) => {
-    const { email, password } = data;
-    const user= users.find(user => user.email === email && user.password === password);
-    return user
+    const { user, password } = data;
+    const userVerif= users.find(userVerif => (userVerif.email === user || userVerif.id === user) && userVerif.password === password);
+    return userVerif
     },
 
-    addTweet: (tweet) => {tweets.push(tweet)}
+    addTweet: (data) => {
+      const {tweet} = data
+      tweets= [...tweets, tweet]
+    }
 
 }

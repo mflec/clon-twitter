@@ -17,6 +17,7 @@ app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 
 app.use(cookieparser());
+app.use(express.static('views'));
 
 app.use(session(
   {
@@ -34,8 +35,6 @@ app.use((req, res, next) => {
   console.log(req.session);
   next();
 });
-
-app.use(express.static('views'))
 
 const redirectLogin = (req, res, next) => {
   if(!req.session.userId) {
@@ -60,12 +59,12 @@ const redirectHome = (req, res, next) => {
 app.get('/', (req, res) => {
   const { userId } = req.session;
   if(userId) return res.redirect('/home');
-  res.render('in');
+  res.render('index');
 });
 
 app.get('/home', redirectLogin, (req, res) => {
   const user = users.find(user => user.id === req.session.userId); 
-  res.render('home', {tweets: tweets, user: user.name})
+  res.render('home', {tweets: tweets, name: user.name, user: user.id })
 });
 
 app.get('/login', redirectHome,  (req, res) => {
@@ -107,7 +106,7 @@ app.post('/register', redirectHome, (req, res) => {
 });
 
 app.post('/home', redirectHome, (req,res)=> {
-  addTweet(req.body.tweet)
+  addTweet(req.body)
   return res.redirect('/home');
 })
 

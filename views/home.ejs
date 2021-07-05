@@ -8,13 +8,15 @@
     <h3>Time Line</h3>
 </div>
     <div>
+        <form method='post' action='/home'>
         <input type='text' name='tweet' placeholder='What is going on?' required/> <br>
     <input type='submit' value='Tweet' class='button'/> 
+</form>
 </div>
     <div>
             <% for(var i=0; i<tweets.length; i++) { %>
                 <div class="tweets">
-                    <h5 id='user'><%= '@' + user %></h5>
+                <h5 id= "user"> <%= name + '    ' + '@' + user %></h5> <br>
                     <p><%= tweets[i] %></p>
                 </div>
             <% } %>

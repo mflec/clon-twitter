@@ -9,8 +9,9 @@
     <form method='post' action='/register'>
       <input name='name' placeholder='Name' required /> <br>
       <% if(exist) { %> <p>this user already exists</p><% } %>
-      <input type='text' name='user' placeholder='Telephone or mail' required /> <br>
-      <input type='password' name='password' placeholder='Contraseña' required /> <br>
+      <input type='text' name='id' placeholder='User' required /> <br>
+      <input type='text' name='mail' placeholder='Mail' required /> <br>
+      <input type='password' name='password' placeholder='Password' required /> <br>
       <label for="Date of Birth">
       Enter the Date:  <br>
       <input type="date" name="date" required />
