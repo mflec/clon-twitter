@@ -1,0 +1,22 @@
+<html>
+<head>
+<link href="./styles/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <a href='/'>Cancel</a>
+  <a href='/login'>Log in</a>
+<h1>Creat your account</h1>
+    <form method='post' action='/register'>
+      <input name='name' placeholder='Name' required /> <br>
+      <% if(exist) { %> <p>this user already exists</p><% } %>
+      <input type='text' name='user' placeholder='Telephone or mail' required /> <br>
+      <input type='password' name='password' placeholder='Contraseña' required /> <br>
+      <label for="Date of Birth">
+      Enter the Date:  <br>
+      <input type="date" name="date" required />
+      </label>
+      <br>
+      <input type='submit' value='Sing up' class="button"> </input>
+</form>
+</body>
+</html>
