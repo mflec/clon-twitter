@@ -1,8 +1,3 @@
-:root {
-    --pajarito: url(https://abs.twimg.com/errors/logo46x38.png);
-}
-
-
 body {
       overflow-y: scroll;
     color: #ffffff;
@@ -70,6 +65,7 @@ footer{
 }
 
 div {
+align-items: flex-start;
 border-style: solid;
 border-color: rgba(109, 111, 117, 0.384);
 border-width: 1px;
@@ -95,4 +91,8 @@ border-width: 1px;
     border-width: 10rem;
     border-style: solid;
     border-color: transparent;
+}
+
+.logo{
+    width: 30px;
 }

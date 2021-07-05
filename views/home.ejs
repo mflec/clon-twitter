@@ -5,19 +5,19 @@
 <a href='/logout'>Log out</a>
 <body> 
     <div>
-    <h3>Time Line</h3>
+    <h1>Time Line <img src='/styles/logo.png' class='logo'></h1>
 </div>
     <div>
-        <form method='post' action='/home'>
-        <input type='text' name='tweet' placeholder='What is going on?' required/> <br>
-    <input type='submit' value='Tweet' class='button'/> 
+    <form method='post' action='/home'> 
+    <input type='text' name='content' placeholder='What is going on?' required/> <br>
+    <input type='submit' value='tweet' class='button'/> 
 </form>
 </div>
     <div>
-            <% for(var i=0; i<tweets.length; i++) { %>
+            <% for(var i=0; i<data.length; i++) { %>
                 <div class="tweets">
-                <h5 id= "user"> <%= name + '    ' + '@' + user %></h5> <br>
-                    <p><%= tweets[i] %></p>
+                <h5 id= "user"> <%='@' + data[i].userUsername %></h5> <br>
+                    <p><%= data[i].content %></p>
                 </div>
             <% } %>
     </body>
