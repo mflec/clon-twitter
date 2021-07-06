@@ -81,6 +81,10 @@ border-width: 1px;
     background-color: transparent;
     border-radius:  0.25rem;
 }
+ 
+#verif {
+    height: 1rem;
+}
 
 #user{
     background-color: transparent;

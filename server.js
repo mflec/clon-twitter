@@ -157,16 +157,12 @@ app.post('/register', redirectHome, (req, res) => {
 
 
 app.post('/home', (req, res) => {
-  const { content, } = req.body;
-  let user= req.session.userId
+  const { content, username} = req.body;
   let tweetCreated;
   Tweet.create({ content }, { include: [User] })
     .then(tweet => {
       tweetCreated = tweet;
-      return User.findByPk(user)
-    })
-    .then(user => {
-      return tweetCreated.setUser(user.username)
+      return tweetCreated.setUser(username)
     })
     .then(() => {
       res.redirect('/')

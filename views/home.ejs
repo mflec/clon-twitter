@@ -9,6 +9,7 @@
 </div>
     <div>
     <form method='post' action='/home'> 
+    <input type='text' name='username' placeholder='Username' id= 'verif'/>
     <input type='text' name='content' placeholder='What is going on?' required/> <br>
     <input type='submit' value='tweet' class='button'/> 
 </form>
@@ -16,7 +17,7 @@
     <div>
             <% for(var i=0; i<data.length; i++) { %>
                 <div class="tweets">
-                <h5 id= "user"> <%='@' + data[i].userUsername %></h5> <br>
+                <h5 id= "user"> <%='@' + data[i].userUsername %></h5> 
                     <p><%= data[i].content %></p>
                 </div>
             <% } %>
